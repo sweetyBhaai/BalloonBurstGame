@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+#game-container {
+  position: relative;
+  width: 400px;
+  height: 600px;
+  border: 2px solid #004d80;
+  overflow: hidden;
+}
+
+#background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Ensure background stays behind everything */
+}
+
+#pump-base {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100px;
+  width: 80px; /* Match the pump base width */
+  z-index: 1;
+}
+
+#pump-handle {
+  position: absolute;
+  bottom: 80px; /* Position it just above the pump base */
+  left: 50%;
+  transform: translateX(-50%);
+  height: 30px; /* Smaller height to match the handle */
+  width: 40px; /* Adjust width to fit the pump */
+  cursor: pointer;
+  z-index: 2;
+}
+
+#pump-nozzle {
+  position: absolute;
+  bottom: 80px; /* Align with the top of the pump base */
+  left: 50%;
+  transform: translateX(-50%);
+  height: 40px; /* Nozzle height */
+  width: 10px; /* Thin nozzle */
+  z-index: 1;
+}
+
+/* Balloon container to hold balloon and alphabet */
+.balloon-container {
+  position: absolute;
+  bottom: 110px; /* Position balloon just above the nozzle */
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 3s linear; /* Move transition here to ensure floating animation works */
+}
+
+/* General balloon styles */
+#balloon1, #balloon2, #balloon3, #balloon4, #balloon5, #balloon6, #balloon7, #balloon8, #balloon9 {
+  width: 40px;
+  transition: width 0.2s, height 0.2s; /* Only apply transition for size changes */
+  cursor: pointer;
+}
+
+/* Alphabet styles */
+.alphabet {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px; /* Adjust size as needed */
+  height: 20px;
+  pointer-events: none; /* Prevents alphabet from interfering with balloon clicks */
+  z-index: 1; /* Ensure alphabet is on top of balloon */
+}
